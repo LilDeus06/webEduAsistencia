@@ -3,7 +3,15 @@
 import { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { Sun, Moon, Download, Mail, MapPin, ChevronDown, ChevronUp, Phone, Star, Settings, Bell } from 'lucide-react'
+import { Sun, Moon, Download, Mail, MapPin, 
+  ChevronDown, ChevronUp, 
+  Phone,
+  Clock, FileText, BarChart, Archive,
+  UserCheck, Search, PieChart, Calendar,
+  CheckCircle, Save, Layout, CheckSquare,
+  Globe, Link2, RefreshCw,
+
+} from 'lucide-react'
 import Image from 'next/image'
 import Tilt from 'react-parallax-tilt'
 import { init, send } from 'emailjs-com';
@@ -18,17 +26,17 @@ export default function LandingPage() {
   const controls = useAnimation()
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   
-  {/*const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  }; */}
+  }; 
 
   const images = [
     "/images/40shots_so.png",
     "/images/img2.png",
-    "/images/img3.png"
+    "/images/img4.png"
   ];
   const [currentImage, setCurrentImage] = useState(0);
   const [nextImage, setNextImage] = useState<number | null>(null);
@@ -116,24 +124,24 @@ export default function LandingPage() {
   
 
   const appFeatures = [
-    { icon: Star, title: 'Control de Asistencias en Tiempo Real', description: 'Registra la presencia de los estudiantes de manera inmediata, desde cualquier dispositivo móvil.' },
-    { icon: Settings, title: 'Justificación de Inasistencias', description: 'Los Auxiliares y profesores pueden gestionar y enviar justificaciones por inasistencia de manera fácil y rápida, directamente desde la app.' },
-    { icon: Bell, title: 'Generación Automática de Reportes', description: 'Crea reportes detallados sobre las asistencias, justificaciones y faltas acumuladas por cada estudiante o grupo.' },
-    { icon: Bell, title: 'Consulta Histórica de Asistencias', description: 'Accede a un registro completo de la asistencia de todos los estudiantes para revisar su evolución a lo largo del tiempo.' },
-    { icon: Bell, title: 'Acceso a Perfiles de Alumnos', description: 'Consulta información completa sobre cada estudiante, desde sus datos personales hasta su historial de asistencia.' },
-    { icon: Bell, title: 'Busqueda amplia de alumnos', description: 'Realiza consultas de Alumnas especificas por nombres apellidos o grado y seccion.' },
-    { icon: Bell, title: 'Vista de datos por graficos', description: 'Revisarás las datos registrados por los Auxiliares y Profesores de manera grafica, fácil de interpretar y entender.' },
-    { icon: Bell, title: 'Control de asistencias por mes', description: 'Podrás tener las asistencias que tomes agrupadas por mes, para una muestra más limpia de asistencias' },
-    { icon: Bell, title: 'Acceso a Justificaciones', description: 'Mantente informado de las Justificaciones que se hagan en tiempo real, automaticamente desde la app' },
+    { icon: Clock, title: 'Control de Asistencias en Tiempo Real', description: 'Registra la presencia de los estudiantes de manera inmediata, desde cualquier dispositivo móvil.' },
+    { icon: FileText, title: 'Justificación de Inasistencias', description: 'Los Auxiliares y profesores pueden gestionar y enviar justificaciones por inasistencia de manera fácil y rápida, directamente desde la app.' },
+    { icon: BarChart, title: 'Generación Automática de Reportes', description: 'Crea reportes detallados sobre las asistencias, justificaciones y faltas acumuladas por cada estudiante o grupo.' },
+    { icon: Archive, title: 'Consulta Histórica de Asistencias', description: 'Accede a un registro completo de la asistencia de todos los estudiantes para revisar su evolución a lo largo del tiempo.' },
+    { icon: UserCheck, title: 'Acceso a Perfiles de Alumnos', description: 'Consulta información completa sobre cada estudiante, desde sus datos personales hasta su historial de asistencia.' },
+    { icon: Search, title: 'Busqueda amplia de alumnos', description: 'Realiza consultas de Alumnas especificas por nombres apellidos o grado y seccion.' },
+    { icon: PieChart, title: 'Vista de datos por graficos', description: 'Revisarás las datos registrados por los Auxiliares y Profesores de manera grafica, fácil de interpretar y entender.' },
+    { icon: Calendar, title: 'Control de asistencias por mes', description: 'Podrás tener las asistencias que tomes agrupadas por mes, para una muestra más limpia de asistencias' },
+    { icon: CheckCircle, title: 'Acceso a Justificaciones', description: 'Mantente informado de las Justificaciones que se hagan en tiempo real, automaticamente desde la app' },
   ]
 
   const beneficios = [
-    { icon: Star, title: 'Ahorro de Tiempo y Recursos', description: 'Reduce el tiempo invertido automatizando procesos clave.' },
-    { icon: Settings, title: 'Facilidad de Uso', description: 'EduAsistencia está diseñada para ser intuitiva, permitiendo que cualquier usuario pueda dominar la app en poco tiempo.' },
-    { icon: Bell, title: 'Reducción de Errores Administrativo', description: 'Al eliminar el registro manual, se minimizan los errores humanos y se asegura que los datos sean siempre precisos y confiables.' },
-    { icon: Bell, title: 'Acceso desde Cualquier Lugar', description: 'Los profesores, auxiliares y administradores pueden acceder a la plataforma desde cualquier lugar, permitiendo un control total en todo momento.' },
-    { icon: Bell, title: 'Fácil Integración con Otros Sistemas', description: 'Compatible con las plataformas más utilizadas en el ámbito educativo, facilitando los datos con sistemas preexistentes.'},
-    { icon: Bell, title: 'Mejora Continua', description: 'Recibe actualizaciones periódicas con nuevas funcionalidades basadas en las necesidades de nuestras instituciones colaboradoras.'},
+    { icon: Save, title: 'Ahorro de Tiempo y Recursos', description: 'Reduce el tiempo invertido automatizando procesos clave.' },
+    { icon: Layout, title: 'Facilidad de Uso', description: 'EduAsistencia está diseñada para ser intuitiva, permitiendo que cualquier usuario pueda dominar la app en poco tiempo.' },
+    { icon: CheckSquare, title: 'Reducción de Errores Administrativo', description: 'Al eliminar el registro manual, se minimizan los errores humanos y se asegura que los datos sean siempre precisos y confiables.' },
+    { icon: Globe, title: 'Acceso desde Cualquier Lugar', description: 'Los profesores, auxiliares y administradores pueden acceder a la plataforma desde cualquier lugar, permitiendo un control total en todo momento.' },
+    { icon: Link2, title: 'Fácil Integración con Otros Sistemas', description: 'Compatible con las plataformas más utilizadas en el ámbito educativo, facilitando los datos con sistemas preexistentes.'},
+    { icon: RefreshCw, title: 'Mejora Continua', description: 'Recibe actualizaciones periódicas con nuevas funcionalidades basadas en las necesidades de nuestras instituciones colaboradoras.'},
   
   ] 
 
@@ -150,36 +158,50 @@ export default function LandingPage() {
   
 
   return (
-    <div className="min-h-screen text-gray-900 dark:text-gray-100">
+    <div id='inicio'  className="min-h-screen text-gray-900 dark:text-gray-100">
       <div className="animated-background"></div>
 
       <header className="sticky top-0 z-50 backdrop-blur-md bg-white/75 dark:bg-gray-900/75 transition-colors duration-300">
-        <nav className="container mx-auto p-6 flex flex-col sm:flex-row items-center justify-between">
-          <a href="#">
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">EduAsistencia</h1>
-          </a>
-          
-          <div className="flex items-center mt-4 sm:mt-0">
-            {/*<nav className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              {[{ name: "Beneficios", href: "beneficios" }, { name: "Características", href: "caracteristicas" }, { name: "Preguntas", href: "preguntas" }, { name: "Contacto", href: "contacto" }].map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </nav>*/}
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300"
-            >
-              {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-            </button>
-          </div>
-        </nav>
-      </header>
+  <nav className="container mx-auto p-6 flex flex-col sm:flex-row items-center justify-between">
+    {/* Logo y botón de tema */}
+    <div className="flex items-center justify-between w-full sm:w-auto">
+      <a onClick={()=> scrollToSection('inicio')}>
+        <h1 className=" cursor-pointer text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+          EduAsistencia
+        </h1>
+      </a>
+      <button
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 sm:hidden"
+      >
+        {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+      </button>
+    </div>
+
+    {/* Menú responsive */}
+    <div className="flex flex-row justify-between items-center w-full sm:w-auto sm:ml-auto sm:flex">
+      <nav className="flex flex-row gap-4 sm:gap-6">
+        {[{ name: "Beneficios", href: "beneficios" }, { name: "Características", href: "caracteristicas" }, { name: "Preguntas", href: "preguntas" }, { name: "Contacto", href: "contact" }].map((item) => (
+          <button
+            key={item.name}
+            onClick={() => scrollToSection(item.href)}
+            className="text-sm font-medium text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors whitespace-nowrap"
+          >
+            {item.name}
+          </button>
+        ))}
+      </nav>
+
+      {/* Botón de tema en pantallas grandes */}
+      <button
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 hidden sm:inline"
+      >
+        {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+      </button>
+    </div>
+  </nav>
+</header>
 
       <main className="container mx-auto px-4 py-16 relative z-10 bg-white/80 dark:bg-gray-800/50 shadow-lg">
         <div className="text-center mb-20">
@@ -258,9 +280,10 @@ export default function LandingPage() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection('contact') }
             className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 hover:shadow-xl"
           >
-            <Download className="w-6 h-6 inline-block mr-2"  href='#contacto' />
+            <Download className="w-6 h-6 inline-block mr-2"  href='#contact' />
             Solicita una Demo
           </motion.button>
         </div>
@@ -351,7 +374,7 @@ export default function LandingPage() {
 
         
         
-    <div id="contacto"  className="my-40">
+    <div id="contacta"  className="my-40">
       <div  className="space-y-2 text-center">
         <h2  className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
         ¿Estás listo para transformar la manera en que gestionas la asistencia en tu institución?
@@ -361,7 +384,7 @@ export default function LandingPage() {
         </p>
       </div>
       
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg mt-8 flex justify-center">
+        <form onSubmit={handleSubmit} id="contact" className="max-w-md mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg mt-8 flex justify-center">
         <div className="w-full">
         <div className="mb-6">
             <label htmlFor="nombre" className="block mb-2 text-lg">Nombre</label>
